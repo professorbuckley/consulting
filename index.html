@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Michael Buckley provides independent brand, UX, UI, and digital experience audits for organizations seeking clear, prioritized recommendations without a production obligation.">
+  <title>Michael Buckley | Brand + Digital Experience Consulting</title>
+  <style>
+    :root {
+      --ink: #151515;
+      --muted: #656565;
+      --line: #d9d9d5;
+      --paper: #f5f4ef;
+      --white: #ffffff;
+      --accent: #273c75;
+      --max: 1180px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+    .wrap { width: min(calc(100% - 48px), var(--max)); margin: 0 auto; }
+    header {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(245,244,239,.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+    nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { text-decoration: none; font-weight: 760; letter-spacing: -.025em; font-size: 1.05rem; }
+    .navlinks { display: flex; gap: 28px; align-items: center; }
+    .navlinks a { text-decoration: none; font-size: .92rem; }
+    .navlinks a:hover { opacity: .58; }
+    .button {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 48px; padding: 0 20px;
+      border: 1px solid var(--ink); text-decoration: none; font-weight: 650;
+      transition: .18s ease;
+    }
+    .button:hover { background: var(--ink); color: var(--white); }
+    .button.dark { background: var(--ink); color: var(--white); }
+    .button.dark:hover { background: transparent; color: var(--ink); }
+    .hero { padding: 116px 0 92px; border-bottom: 1px solid var(--line); }
+    .eyebrow { text-transform: uppercase; letter-spacing: .13em; font-size: .75rem; font-weight: 760; color: var(--muted); margin-bottom: 24px; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { font-size: clamp(3rem, 7.3vw, 6.8rem); line-height: .94; letter-spacing: -.065em; max-width: 1050px; margin-bottom: 34px; font-weight: 760; }
+    .hero-copy { display: grid; grid-template-columns: 1.45fr .55fr; gap: 64px; align-items: end; }
+    .hero-copy p { max-width: 720px; font-size: clamp(1.1rem, 1.7vw, 1.4rem); color: #393939; margin-bottom: 0; }
+    .hero-actions { display: flex; gap: 12px; justify-content: flex-end; flex-wrap: wrap; }
+    section { padding: 96px 0; border-bottom: 1px solid var(--line); }
+    .section-head { display: grid; grid-template-columns: .65fr 1.35fr; gap: 70px; margin-bottom: 58px; }
+    h2 { font-size: clamp(2.2rem, 4.3vw, 4.1rem); line-height: 1; letter-spacing: -.05em; margin-bottom: 24px; }
+    .section-head p, .lead { font-size: 1.18rem; color: #414141; max-width: 720px; }
+    .statement { font-size: clamp(2rem, 4.2vw, 4.2rem); line-height: 1.08; letter-spacing: -.045em; max-width: 1050px; margin: 0; }
+    .statement span { color: var(--muted); }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+    .card { padding: 30px; min-height: 310px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); display: flex; flex-direction: column; }
+    .card .num { color: var(--muted); font-size: .8rem; margin-bottom: 60px; }
+    .card h3 { font-size: 1.3rem; letter-spacing: -.025em; margin-bottom: 14px; }
+    .card p { color: var(--muted); margin-bottom: 0; font-size: .96rem; }
+    .card.featured { background: var(--ink); color: var(--white); }
+    .card.featured p, .card.featured .num { color: #bdbdbd; }
+    .card .hook { margin-top: auto; padding-top: 22px; font-size: .82rem; font-weight: 700; color: var(--ink); }
+    .card.featured .hook { color: #fff; }
+    .deliverables { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 60px; }
+    .deliverable { padding: 25px 0; border-top: 1px solid var(--line); }
+    .deliverable h3 { margin-bottom: 8px; font-size: 1.12rem; }
+    .deliverable p { color: var(--muted); margin: 0; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
+    .stat { padding-top: 22px; border-top: 3px solid var(--ink); }
+    .stat strong { display: block; font-size: clamp(2.5rem, 5vw, 4.7rem); letter-spacing: -.06em; line-height: 1; margin-bottom: 15px; }
+    .stat p { color: var(--muted); font-size: .93rem; }
+    .note { margin-top: 28px; color: var(--muted); font-size: .82rem; max-width: 850px; }
+    .process { counter-reset: step; }
+    .process-row { display: grid; grid-template-columns: 80px .75fr 1.25fr; gap: 32px; padding: 30px 0; border-top: 1px solid var(--line); align-items: baseline; }
+    .process-row:last-child { border-bottom: 1px solid var(--line); }
+    .process-row .step { color: var(--muted); font-size: .85rem; }
+    .process-row h3 { font-size: 1.55rem; letter-spacing: -.03em; margin: 0; }
+    .process-row p { color: var(--muted); margin: 0; max-width: 620px; }
+    .about-grid { display: grid; grid-template-columns: .75fr 1.25fr; gap: 90px; }
+    .about-aside { border-top: 3px solid var(--ink); padding-top: 20px; }
+    .about-photo { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block; margin: 24px 0 22px; }
+    .about-aside strong { display: block; font-size: 1.15rem; margin-bottom: 10px; }
+    .about-aside p { color: var(--muted); font-size: .92rem; }
+    .about-aside .role { color: var(--ink); font-size: 1rem; font-weight: 650; margin-bottom: 0; }
+    .about-copy p { font-size: 1.12rem; color: #333; }
+    .experience { margin-top: 60px; }
+    .experience h3 { font-size: .82rem; text-transform: uppercase; letter-spacing: .12em; color: var(--muted); margin-bottom: 22px; }
+    .logos { display: grid; grid-template-columns: repeat(4, 1fr); border-left: 1px solid var(--line); border-top: 1px solid var(--line); }
+    .logo-placeholder { min-height: 110px; padding: 22px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); display: flex; align-items: center; justify-content: center; text-align: center; font-weight: 700; color: #555; }
+    .independent { background: var(--ink); color: var(--white); }
+    .independent .section-head p { color: #c8c8c8; }
+    .independent .eyebrow { color: #aaa; }
+    .independent .button { border-color: var(--white); color: var(--white); }
+    .independent .button:hover { background: var(--white); color: var(--ink); }
+    .cta { padding: 120px 0; }
+    .cta h2 { max-width: 850px; }
+    .cta p { max-width: 640px; color: var(--muted); font-size: 1.1rem; margin-bottom: 32px; }
+    footer { padding: 34px 0 48px; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 30px; color: var(--muted); font-size: .86rem; }
+    @media (max-width: 900px) {
+      .navlinks a:not(.button) { display: none; }
+      .hero { padding: 80px 0 68px; }
+      .hero-copy, .section-head, .about-grid { grid-template-columns: 1fr; gap: 30px; }
+      .hero-actions { justify-content: flex-start; }
+      .grid-4 { grid-template-columns: repeat(2, 1fr); }
+      .stats { grid-template-columns: 1fr; }
+      .process-row { grid-template-columns: 50px 1fr; }
+      .process-row p { grid-column: 2; }
+      .logos { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .wrap { width: min(calc(100% - 30px), var(--max)); }
+      nav { min-height: 66px; }
+      .navlinks .button { min-height: 40px; padding: 0 13px; font-size: .82rem; }
+      section { padding: 70px 0; }
+      h1 { font-size: clamp(3rem, 16vw, 4.6rem); }
+      .grid-4, .deliverables, .logos { grid-template-columns: 1fr; }
+      .card { min-height: auto; }
+      .card .num { margin-bottom: 42px; }
+      .footer-inner { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <nav aria-label="Primary navigation">
+        <a class="brand" href="#top">Michael Buckley</a>
+        <div class="navlinks">
+          <a href="#services">Services</a>
+          <a href="#approach">Approach</a>
+          <a href="#about">About</a>
+          <a class="button" href="mailto:hello@professorbuckley.com?subject=Audit%20Inquiry">Request an Audit</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap">
+        <div class="eyebrow">Brand + Digital Experience Consulting</div>
+        <h1>A second set of expert eyes on your brand and digital experience.</h1>
+        <div class="hero-copy">
+          <p>I help organizations identify problems across branding, UX, UI, content, and digital experiences, then determine what matters, what should change, and what to do next.</p>
+          <div class="hero-actions">
+            <a class="button dark" href="#services">Explore Services</a>
+            <a class="button" href="mailto:hello@professorbuckley.com?subject=Audit%20Inquiry">Request an Audit</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <p class="statement">Evaluate what exists. <span>Identify what matters.</span> Prioritize what should change. <span>Define what happens next.</span></p>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Audit Services</div>
+            <h2>One audit. Scoped to what you actually need.</h2>
+          </div>
+          <p>I provide independent expert audits of brands and digital experiences. The engagement is scoped around the areas that need attention, rather than forcing every organization into a predefined package. That might mean a focused review of one area or a broader assessment across several. The point is to understand what is working, what is not, and what deserves attention before committing to more production.</p>
+        </div>
+
+        <div class="grid-4">
+          <article class="card">
+            <div class="num">Area 01</div>
+            <h3>Brand</h3>
+            <p>Visual identity, typography, color, imagery, messaging, consistency, and how the brand is expressed across key touchpoints.</p>
+          </article>
+          <article class="card">
+            <div class="num">Area 02</div>
+            <h3>Website + Digital Experience</h3>
+            <p>Navigation, information architecture, content hierarchy, responsiveness, accessibility, performance, and the overall digital experience.</p>
+          </article>
+          <article class="card">
+            <div class="num">Area 03</div>
+            <h3>UX/UI</h3>
+            <p>Interface consistency, interaction patterns, calls to action, usability friction, hierarchy, discoverability, and common UX issues.</p>
+          </article>
+          <article class="card">
+            <div class="num">Area 04</div>
+            <h3>AI Content + Experience</h3>
+            <p>AI-assisted content, imagery, interfaces, and customer-facing experiences, including generic language, factual or contextual problems, brand drift, inconsistency, unnecessary automation, and the places where human judgment has quietly left the room.</p>
+            <div class="hook">In less formal terms: an AI slop audit.</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">What You Get</div>
+            <h2>Not another 100-page strategy deck.</h2>
+          </div>
+          <p>The goal is a concise, usable assessment and a prioritized roadmap. Findings distinguish between contained improvements that can be addressed now and systemic issues that require broader intervention.</p>
+        </div>
+        <div class="deliverables">
+          <div class="deliverable"><h3>What's working</h3><p>Elements worth preserving rather than changing simply for the sake of change.</p></div>
+          <div class="deliverable"><h3>What needs attention now</h3><p>Contained issues that can often be corrected within the existing brand or experience.</p></div>
+          <div class="deliverable"><h3>What requires deeper intervention</h3><p>Structural issues involving branding, information architecture, content, UX, technology, or the way AI is being used across the experience.</p></div>
+          <div class="deliverable"><h3>What happens next</h3><p>Prioritized recommendations and guidance on what can be handled internally and where specialist support may be useful.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Why It Matters</div>
+            <h2>Design problems have consequences.</h2>
+          </div>
+          <p>Poor hierarchy creates confusion. Inconsistent interfaces create friction. Accessibility problems exclude users. Slow experiences contribute to abandonment. Weak messaging makes it harder for people to understand what an organization offers and what they should do next.</p>
+        </div>
+        <div class="stats">
+          <div class="stat"><strong>94.8%</strong><p>of the one million home pages analyzed by WebAIM in 2025 had detectable WCAG failures.</p></div>
+          <div class="stat"><strong>~35%</strong><p>potential checkout conversion improvement identified by Baymard for the average large ecommerce site through checkout design improvements.</p></div>
+          <div class="stat"><strong>8%</strong><p>more sales reported in a Vodafone case study following a 31% improvement in Largest Contentful Paint.</p></div>
+        </div>
+        <p class="note">Published research and case-study findings provide context, not guaranteed outcomes. Results vary by organization, audience, traffic, product, and implementation.</p>
+      </div>
+    </section>
+
+    <section id="approach">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="eyebrow">Approach</div><h2>From observation to action.</h2></div>
+          <p>The audit is designed to move beyond a list of design opinions. Good judgment requires more than spotting what looks wrong. Each significant finding connects an issue to its impact, a recommendation, an intended outcome, and the likely scope of implementation.</p>
+        </div>
+        <div class="process">
+          <div class="process-row"><div class="step">01</div><h3>Assess</h3><p>Review the existing brand, website, interface, content, and digital experience through the agreed scope.</p></div>
+          <div class="process-row"><div class="step">02</div><h3>Identify</h3><p>Surface inconsistencies, friction, accessibility concerns, structural problems, and opportunities for improvement.</p></div>
+          <div class="process-row"><div class="step">03</div><h3>Prioritize</h3><p>Separate immediate improvements from systemic issues so the organization knows what deserves attention first.</p></div>
+          <div class="process-row"><div class="step">04</div><h3>Recommend</h3><p>Define practical next steps and identify whether implementation can likely be handled internally or requires outside support.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap">
+        <div class="about-grid">
+          <aside class="about-aside">
+            <div class="eyebrow">About</div>
+            <strong>Michael Buckley</strong>
+            <p class="role">Design + Digital Experience Specialist</p>
+            <img class="about-photo" src="https://media.licdn.com/dms/image/v2/D4E03AQGyBwafpXLLNg/profile-displayphoto-crop_800_800/B4EZnel5DLKcAM-/0/1760376099690?e=1792627200&amp;v=beta&amp;t=GycpZxdGF-Mn7Gs2OqS3Rr1acbWrvHTcGBVEwjnwXJs" alt="Michael Buckley">
+            <p>Designer, creative director, UX/UI practitioner, front-end developer, educator, and researcher.</p>
+          </aside>
+          <div class="about-copy">
+            <h2>Experience across the disciplines that shape digital experiences.</h2>
+            <p>I am a designer, creative director, UX/UI practitioner, front-end developer, and educator with approximately 20 years of experience working across brand and digital experiences.</p>
+            <p>My career has moved across disciplines that are often treated separately: branding, graphic design, creative direction, UX/UI, web development, content, and digital strategy. That experience shapes how I approach consulting today, particularly as AI makes producing more things easier while making judgment about what should exist more important.</p>
+            <p>Rather than looking at a website solely as a design problem or an interface solely as a UX problem, I examine how brand, content, interface, technology, and user experience work together.</p>
+            <p>Alongside my consulting practice, I am an Assistant Professor at Seton Hall University, where I teach UX/UI design, web development, graphic design, and interactive media. My research examines design, ethics, emerging technology, and the decisions embedded within digital experiences.</p>
+          </div>
+        </div>
+
+        <div class="experience">
+          <h3>Selected Client + Professional Experience</h3>
+          <div class="logos">
+            <div class="logo-placeholder">Enliven Therapeutics</div>
+            <div class="logo-placeholder">U.S. Department of Health &amp; Human Services</div>
+            <div class="logo-placeholder">Conexiant</div>
+            <div class="logo-placeholder">VoltServer</div>
+            <div class="logo-placeholder">Client / Logo 05</div>
+            <div class="logo-placeholder">Client / Logo 06</div>
+            <div class="logo-placeholder">Client / Logo 07</div>
+            <div class="logo-placeholder">Client / Logo 08</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="independent">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="eyebrow">Independent Advice</div><h2>No production obligation.</h2></div>
+          <div>
+            <p>I'm not auditing your website so I can sell you a new website, and I'm not auditing your AI output so I can sell you more AI. My role is to identify what is working, what isn't, and what should happen next. Recommendations can be implemented by your internal team, existing partners, or outside specialists.</p>
+            <a class="button" href="mailto:hello@professorbuckley.com?subject=Audit%20Inquiry">Discuss an Audit</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="wrap">
+        <div class="eyebrow">Start Here</div>
+        <h2>Not sure what needs to change?</h2>
+        <p>An independent assessment can help separate surface-level problems from issues that require deeper attention and give you a clearer path forward.</p>
+        <a class="button dark" href="mailto:hello@professorbuckley.com?subject=Audit%20Inquiry">Request an Audit</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <div>© 2026 Michael Buckley. All rights reserved.</div>
+      <div>Brand + Digital Experience Consulting</div>
+    </div>
+  </footer>
+</body>
+</html>
